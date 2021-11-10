@@ -1,0 +1,105 @@
+<!doctype html>
+
+<head>
+    <title>Random Useless Facts</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #eee;
+        }
+
+        div {
+            font-size: 20px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        header {
+            text-align: center;
+            font-family: 'Kavoon', cursive;
+
+        }
+
+        
+        a {
+		
+            color:  #eee;
+            font-weight: bold;
+			 
+            font-family: 'Space Mono', monospace;
+			z-index: -1
+        }
+        footer {
+            float: right;
+            font-family: 'Space Mono', monospace;
+z-index: -1;
+  
+
+        }
+		
+	.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Random Useless Facts</h1>
+        <h3>Reload for a new fact, or click the button below</h3>
+		<button  onClick="window.location.reload();">New fact</button>
+		
+
+
+    </header>
+    <br>
+    <br>
+    <main>
+        <div id="fact"></div>
+        <br>
+        <br>
+       <a href="https://github.com/Saegg"target="_blank">Github</a>
+    </main>
+    <footer>
+        <a href="https://uselessfacts.jsph.pl/"target="_blank">Random Useless Facts API</a>
+    </footer>
+
+
+
+    <script>
+        var url = 'https://uselessfacts.jsph.pl/random.json?language=en';
+
+        $.getJSON(url, function (data) {
+
+
+            fact.innerHTML = data.text;
+            source.innerHTML = `Source: <a href="${data.source}">${data.source}</a>`;
+        });
+    </script>
+</body>
+
+</html>
